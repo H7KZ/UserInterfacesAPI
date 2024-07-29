@@ -1,0 +1,7 @@
+name: UserInterfacesAPI
+version: '1.0.0'
+main: cz.kominekjan.userInterfacesAPI.UserInterfacesAPI
+api-version: '1.21'
+authors: [ Jan Komínek ]
+description: API for easy custom GUI and Inventories
+website: https://kominekjan.cz
