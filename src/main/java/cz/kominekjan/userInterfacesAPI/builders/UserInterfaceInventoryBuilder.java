@@ -6,12 +6,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.permissions.Permission;
 
 import java.util.List;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public class UserInterfaceInventoryBuilder {
     private Inventory inventory;
+    private Permission permission;
     private List<IUserInterfaceItem> items;
 
     public UserInterfaceInventoryBuilder createInventory(InventoryHolder holder, InventoryType type, String title) {
@@ -26,6 +28,16 @@ public class UserInterfaceInventoryBuilder {
 
     public UserInterfaceInventoryBuilder setInventory(Inventory inventory) {
         this.inventory = inventory;
+        return this;
+    }
+
+    public UserInterfaceInventoryBuilder setPermission(String permission) {
+        this.permission = new Permission(permission);
+        return this;
+    }
+
+    public UserInterfaceInventoryBuilder setPermission(Permission permission) {
+        this.permission = permission;
         return this;
     }
 
@@ -58,6 +70,11 @@ public class UserInterfaceInventoryBuilder {
             @Override
             public Inventory getInventory() {
                 return inventory;
+            }
+
+            @Override
+            public Permission getPermission() {
+                return permission;
             }
 
             @Override
